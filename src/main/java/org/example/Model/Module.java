@@ -2,7 +2,6 @@ package org.example.Model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
 
 @Entity
 public class Module {
@@ -10,9 +9,7 @@ public class Module {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
-    @ManyToMany(cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-    @JoinTable(name = "Student_modules")
-    List<Student> students;
+
 
     public Module(Long id, String name) {
         this.id = id;
@@ -38,11 +35,4 @@ public class Module {
         this.name = name;
     }
 
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
 }
